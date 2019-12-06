@@ -1,3 +1,10 @@
 #question-sec{
     display: none;
 }
+#sp{
+    display: none;
+}
+.table {
+    margin: auto;
+    width: 50% !important; 
+ }
