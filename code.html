@@ -14,8 +14,11 @@
 
 <body>
     <a href="#" class="text-decoration-none ml-4" id="score">View Highscore</a>
-    <a href="#" class="text-decoration-none float-right mr-4">Timer</a>
-    <div class="m-4">
+    <div class="timer float-right mr-3">
+        <div id="minutes">1</div>
+        <div id="seconds">00</div>
+      </div>
+    <div class="m-4"></div>
         <div class="jumbotron-fluid" id="Main-menu">
             <div class="container">
                 <div class="row">
@@ -46,17 +49,23 @@
                        <div class="col-12 text-center"id="carries_q">
 
                     </div>
-                    <div  class="col-12 text-center"id="carries_a">
+                    <div class="col-12 text-center d-flex justify-content-center flex-sm-row"id="carries_a">
+
+                    
+        
+                    
+                            </div>
+                        
+                        
                     </div>
                     <div id="response">
                         <hr>
                         <h5></h5>
                     </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
                         <div class="container" id="sp">
                         <div class="row">
@@ -72,9 +81,28 @@
                             </div>
                         </div>
                                 <div class="col-12 text-center">
-                        <button class="btn btn-success">Go back</button>
-                        <button class="btn btn-success m-4">Clear Highscore</button>
+                        <button class="btn btn-success"id="back">Go back</button>
+                        <button class="btn btn-success m-4"id="clear">Clear Highscore</button>
                         </div>
+                        </div>
+                       <!--<div class="container" id="done">
+                            <div class="col-12">
+                                <h1 class="text-center">All done!</h1>
+                                <h3 lass="text-center" id="final"></h3>
+                            </div>
+                            <div class="row">
+                            <div class="col-6 text-right">
+                            <h4>Your initilas here:</h>
+                            </div>
+                            <div class="col-6">
+                                    <div class="input-group">
+                                            <input type="text" class="form-control-sm" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                              <button class="btn btn-outline-secondary btn-sm" type="button" id="button-addon2">Submit</button>
+                            
+                                          </div>
+                                </div>
+
+                            </div>-->
                         
                         
 
