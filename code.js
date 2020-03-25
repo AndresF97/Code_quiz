@@ -1,10 +1,14 @@
 //Pointers to find and use code easily
+// thi s display the main menu
 var main = document.getElementById("Main-menu");
+// listens for the button to be clicked
 var start = document.querySelector("#bt");
+// this gets the question section
 var q_sec= document.querySelector("#question-sec")
+// we target the the score section
 var score=document.querySelector("#score")
+// we target the minute section
 var minutes=document.querySelector("#minutes")
-var secs=document.querySelector("#seconds")
 
 //uses the an event listener on the start button to to bring text present
 start.addEventListener("click",function(){
@@ -32,44 +36,58 @@ back.addEventListener("click",function(event){
 var totalSeconds= 0;
 var secondsElapsed=0;
 var interval;
+var totalMinutes = 60;  
 function minutesFormat(){
-    var secondsLeft= totalSeconds - secondsElapsed;
-    var minutesleft= Math.floor(secondsLeft/60);
-    var formattedMinutes;
-    if(minutesleft < 10){
-        formattedMinutes= "0" + minutesLeft
-    }else{
-        formattedMinutes = minutesLeft;
-    }
-    return formattedMinutes;
+    // var secondsLeft= totalSeconds - secondsElapsed;
+    // var minutesleft= Math.floor(secondsLeft/60);
+    // var formattedMinutes;
+    // if(minutesleft < 10){
+    //     formattedMinutes= "0" + minutesLeft
+    // }else{
+    //     formattedMinutes = minutesLeft;
+    // }
+    // return formattedMinutes;
+    var timeInterval = setInterval(function(){
+        totalMinutes--
+        minutes.textContent = totalMinutes
 
+        if(totalMinutes === 0){
+            clearInterval(timeInterval)
+        }
+    },6000
+    )
 }
-function secondFormat(){
-    var secondsLeft=(totalSeconds - secondsElapsed)%60;
-    var formattedSeconds;
+// function secondFormat(){
+//     var secondsLeft=(totalSeconds - secondsElapsed)%60;
+//     var formattedSeconds;
     
-    if (secondsLeft < 10){
-        formattedSeconds = "0" + secondsLeft;
-    }else{
-        formattedSeconds = secondsLeft
-    }
-    return formattedSeconds
-}
-function renderTime(){
-    minutes.textContent =minutesFormat();
-    secs.textContent = secondFormat();
-    stopTimer();
-}
+//     if (secondsLeft < 10){
+//         formattedSeconds = "0" + secondsLeft;
+//     }else{
+//         formattedSeconds = secondsLeft
+//     }
+//     return formattedSeconds
+// }
+// function renderTime(){
+//     minutes.textContent = minutesFormat();
+//     secs.textContent = secondFormat();
+//     stopTimer();
+// }
 
 function startTime(){
-    interval = setInterval(function(){
-        secondsElapsed++;
-        renderTime();
-    },1000);
+    var timeInterval = setInterval(function(){
+        totalMinutes--
+        minutes.textContent = totalMinutes
+
+        if(totalMinutes === 0){
+            clearInterval(timeInterval)
+        }
+    },6000
+    )
 }
 
-function stopTime(){
-    secondsElapsed=0;
-    setTime()
-    renderTime()
-}
+// function stopTime(){
+//     secondsElapsed=0;
+//     setTime()
+//     renderTime()
+// }

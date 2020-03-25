@@ -16,9 +16,6 @@ var quiz=[
 //function that will get the the elemnet and create and add new content to tye DOM
 
 function creation(){
-
-    
-
    part1()
    part2()
    startTime()
@@ -30,7 +27,7 @@ function creation(){
       questions.innerHTML = "";
         var quest = quiz[q_counter].q;
         var h = document.createElement("h4");
-        questions.setAttribute("date-quest",quest)
+        questions.setAttribute("data-quest",quest)
         h.textContent = quest;
         questions.append(h)
      }
@@ -39,8 +36,8 @@ function creation(){
       a_counter=0
       answer.innerHTML = "";
        for(i=0; i <= quiz.length;i++){
-         var ans =quiz[a_counter].a;
-         var bt=document.createElement("button");
+         var ans = quiz[a_counter].a;
+         var bt= document.createElement("button");
          bt.classList.add("btn");
          bt.classList.add("btn-success");
          bt.classList.add("m-2");
@@ -51,9 +48,10 @@ function creation(){
       }
       bt.addEventListener("click",function(event){
           event.preventDefault()
-          console.log("hello")
-          questions.textContent=" "
-          answer.textContent=" "
+          var btnValue = document.getElementsByClassName("btn")
+          console.log(btnValue.value)
+          questions.textContent=""
+          answer.textContent=""
           q_counter++
           a_counter++
           part1()
