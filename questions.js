@@ -41,15 +41,14 @@ function creation(){
          bt.classList.add("btn");
          bt.classList.add("btn-success");
          bt.classList.add("m-2");
-         answer.setAttribute("data-ans",ans[i])
+         bt.setAttribute("data-ans",ans[i])
          bt.textContent = ans[i]
          answer.append(bt)
          
       }
-      bt.addEventListener("click",function(event){
+      answer.addEventListener("click",function(event){
           event.preventDefault()
-          var btnValue = document.getElementsByClassName("btn")
-          console.log(btnValue.value)
+          console.log(event.target)
           questions.textContent=""
           answer.textContent=""
           q_counter++

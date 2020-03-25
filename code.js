@@ -38,9 +38,6 @@ back.addEventListener("click",function(event){
 
 })
 
-var totalSeconds= 0;
-var secondsElapsed=0;
-var interval;
 var totalMinutes = 60;  
 
 function startTime(){
@@ -56,9 +53,3 @@ function startTime(){
     },1000
     )
 }
-
-// function stopTime(){
-//     secondsElapsed=0;
-//     setTime()
-//     renderTime()
-// }
