@@ -49,6 +49,9 @@ function creation(){
       answer.addEventListener("click",function(event){
           event.preventDefault()
           console.log(event.target)
+          var answer = event.target
+          console.log(answer.getAttribute("data-ans"))
+          // this would reset the content of teh question and answer
           questions.textContent=""
           answer.textContent=""
           q_counter++
