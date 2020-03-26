@@ -1,8 +1,15 @@
 //Pointers to find elements better
 var questions = document.querySelector("#carries_q")
 var answer = document.querySelector("#carries_a")
-var a_counter = 0
-var q_counter = 0
+// get the correct message or wrong message response
+var correctMessage = document.querySelector("#correctAnswer")
+var wrongMessage = document.querySelector("#wrongAnswer")
+var a_counter = 0;
+var q_counter = 0;
+
+//hideing certain elements on the page 
+correctMessage.setAttribute("style","display:none")
+wrongMessage.setAttribute("style","display:none")
 
 //Object that carries the questions
 var quiz=[
@@ -47,10 +54,16 @@ function creation(){
          
       }
       answer.addEventListener("click",function(event){
+          correctMessage.setAttribute("style","display:none")
+          wrongMessage.setAttribute("style","display:none")
           event.preventDefault()
           console.log(event.target)
-          var answer = event.target
-          console.log(answer.getAttribute("data-ans"))
+          var clickedAnswer = event.target.getAttribute("data-ans")
+         if(clickedAnswer === "Link tag"){
+          correctMessage.setAttribute("style","display:contents")
+         }else{
+           wrongMessage.setAttribute("style","display:contents")
+         }
           // this would reset the content of teh question and answer
           questions.textContent=""
           answer.textContent=""
