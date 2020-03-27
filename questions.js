@@ -5,6 +5,8 @@ var answer = document.querySelector("#carries_a")
 var correctMessage = document.querySelector("#correctAnswer")
 var wrongMessage = document.querySelector("#wrongAnswer")
 var scoreOnScreen = document.querySelector("#points")
+var submitBtn = document.querySelector("#submitName")
+var nameSubmitsion = document.querySelector("#name")
 var a_counter = 0;
 var q_counter = 0;
 var score = 0 
@@ -59,7 +61,7 @@ function creation(){
      }
     }
   
-      answer.addEventListener("click",function(event){
+answer.addEventListener("click",function(event){
           correctMessage.setAttribute("style","display:none")
           wrongMessage.setAttribute("style","display:none")
           event.preventDefault()
@@ -85,7 +87,12 @@ function creation(){
             // this would reset the content of teh question and answer
           questionare()
          }
-}) 
+})
+submitBtn.addEventListener("click",function(event){
+  event.preventDefault()
+  console.log(nameSubmitsion.value)
+})
+
 
 var lessTime = function(answer){
   if(answer === true){
