@@ -12,6 +12,9 @@ var minutes=document.querySelector("#minutes")
 // we target the done section
 var doneScreen = document.querySelector("#done")
 doneScreen.setAttribute("style","display:none")
+//score section
+var highscore = document.querySelector("#highscore")
+highscore.setAttribute("style","display:none")
 
 //uses the an event listener on the start button to to bring text present
 start.addEventListener("click",function(){
@@ -23,7 +26,8 @@ score.addEventListener("click",function(event){
     event.preventDefault()
     main.setAttribute("style","display:none");
     q_sec.setAttribute("style","display:none");
-    sp.setAttribute("style","display:contents");
+    highscore.setAttribute("style","display:contents");
+    doneScreen.setAttribute("style","display:none")
      //start timer
 
     //render the question.js
