@@ -6,6 +6,7 @@ var correctMessage = document.querySelector("#correctAnswer")
 var wrongMessage = document.querySelector("#wrongAnswer")
 var a_counter = 0;
 var q_counter = 0;
+var score = 0 
 
 //hideing certain elements on the page 
 correctMessage.setAttribute("style","display:none")
@@ -29,6 +30,10 @@ function creation(){
     
     ///question and answers functions 
     function questionare(){
+      console.log(a_counter)
+      if(a_counter === 3){
+        doneWithTest(true)
+      }
       //renders questions
       questions.innerHTML = "";
         var quest = quiz[q_counter].q;
@@ -64,7 +69,7 @@ function creation(){
           answer.textContent=""
           q_counter+=1
           a_counter+=1
-          console.log(a_counter)
+          // this would reset the content of teh question and answer
           questionare()
          }else{
            wrongMessage.setAttribute("style","display:contents")
@@ -73,15 +78,18 @@ function creation(){
           answer.textContent=""
           q_counter+=1
           a_counter+=1
-          console.log(a_counter)
+            // this would reset the content of teh question and answer
           questionare()
          }
-          // this would reset the content of teh question and answer
-        }) 
+}) 
 
 var lessTime = function(answer){
   if(answer === true){
     totalMinutes-=5
   }
-
+}
+var doneWithTest = function(answer){
+  if(answer === true){
+    totalMinutes = 0
+  }
 }

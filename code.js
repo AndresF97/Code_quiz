@@ -45,7 +45,7 @@ function startTime(){
         totalMinutes--
         minutes.textContent = totalMinutes
 
-        if(totalMinutes === 0){
+        if(totalMinutes <= 0){
             clearInterval(timeInterval)
             q_sec.setAttribute("style","display:none");
             doneScreen.setAttribute("style","display:contents")
