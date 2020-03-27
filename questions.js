@@ -23,24 +23,21 @@ var quiz=[
 //function that will get the the elemnet and create and add new content to tye DOM
 
 function creation(){
-   part1()
-   part2()
+   questionare()
    startTime()
   }
     
     ///question and answers functions 
-    function part1(){
-      q_counter = 0
+    function questionare(){
+      //renders questions
       questions.innerHTML = "";
         var quest = quiz[q_counter].q;
         var h = document.createElement("h4");
         questions.setAttribute("data-quest",quest)
         h.textContent = quest;
         questions.append(h)
-     }
-  
-    function part2(){
-      a_counter=0
+
+        //renders answers
       answer.innerHTML = "";
        for(i=0; i <= quiz.length;i++){
          var ans = quiz[a_counter].a;
@@ -52,30 +49,35 @@ function creation(){
          bt.textContent = ans[i]
          answer.append(bt)
          
-      }
-    
+     }
+    }
+  
       answer.addEventListener("click",function(event){
           correctMessage.setAttribute("style","display:none")
           wrongMessage.setAttribute("style","display:none")
           event.preventDefault()
           console.log(event.target)
           var clickedAnswer = event.target.getAttribute("data-ans")
-         if(clickedAnswer === "Link tag"){
+         if(clickedAnswer === "Link tag" || clickedAnswer === "Bootstrap" || clickedAnswer === "git pull"){
           correctMessage.setAttribute("style","display:contents")
+          questions.textContent=""
+          answer.textContent=""
+          q_counter+=1
+          a_counter+=1
+          console.log(a_counter)
+          questionare()
          }else{
            wrongMessage.setAttribute("style","display:contents")
            lessTime(true)
+           questions.textContent=""
+          answer.textContent=""
+          q_counter+=1
+          a_counter+=1
+          console.log(a_counter)
+          questionare()
          }
           // this would reset the content of teh question and answer
-          questions.textContent=""
-          answer.textContent=""
-          q_counter++
-          a_counter++
-          part1()
-          part2()
-       
         }) 
-      }
 
 var lessTime = function(answer){
   if(answer === true){
