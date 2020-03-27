@@ -90,7 +90,16 @@ answer.addEventListener("click",function(event){
 })
 submitBtn.addEventListener("click",function(event){
   event.preventDefault()
-  console.log(nameSubmitsion.value)
+  var player = {
+    playerName: nameSubmitsion.value.trim(),
+    playerScore: score
+  }
+  console.log(player)
+  if(player.playerName === ""){
+    alert("please fill in your Initials")
+  }else{
+  localStorage.setItem("players",JSON.stringify(player))
+}
 })
 
 
