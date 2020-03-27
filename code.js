@@ -49,6 +49,7 @@ function startTime(){
             clearInterval(timeInterval)
             q_sec.setAttribute("style","display:none");
             doneScreen.setAttribute("style","display:contents")
+            minutes.textContent = 0
         }
     },1000
     )

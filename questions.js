@@ -4,6 +4,7 @@ var answer = document.querySelector("#carries_a")
 // get the correct message or wrong message response
 var correctMessage = document.querySelector("#correctAnswer")
 var wrongMessage = document.querySelector("#wrongAnswer")
+var scoreOnScreen = document.querySelector("#points")
 var a_counter = 0;
 var q_counter = 0;
 var score = 0 
@@ -30,6 +31,7 @@ function creation(){
     
     ///question and answers functions 
     function questionare(){
+      scoreOnScreen.innerHTML = score
       console.log(a_counter)
       if(a_counter === 3){
         doneWithTest(true)
@@ -69,6 +71,7 @@ function creation(){
           answer.textContent=""
           q_counter+=1
           a_counter+=1
+          score+=15
           // this would reset the content of teh question and answer
           questionare()
          }else{
@@ -78,6 +81,7 @@ function creation(){
           answer.textContent=""
           q_counter+=1
           a_counter+=1
+          score-=2
             // this would reset the content of teh question and answer
           questionare()
          }
