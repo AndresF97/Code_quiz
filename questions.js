@@ -53,6 +53,7 @@ function creation(){
          answer.append(bt)
          
       }
+    
       answer.addEventListener("click",function(event){
           correctMessage.setAttribute("style","display:none")
           wrongMessage.setAttribute("style","display:none")
@@ -63,6 +64,7 @@ function creation(){
           correctMessage.setAttribute("style","display:contents")
          }else{
            wrongMessage.setAttribute("style","display:contents")
+           lessTime(true)
          }
           // this would reset the content of teh question and answer
           questions.textContent=""
@@ -74,3 +76,10 @@ function creation(){
        
         }) 
       }
+
+var lessTime = function(answer){
+  if(answer === true){
+    totalMinutes-=5
+  }
+
+}
