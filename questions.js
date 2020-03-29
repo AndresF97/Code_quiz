@@ -11,6 +11,7 @@ var clearHistory = document.querySelector("#clearHistory")
 var a_counter = 0;
 var q_counter = 0;
 var score = 0 
+var timer = 1000
 
 //hideing certain elements on the page 
 correctMessage.setAttribute("style","display:none")
@@ -37,7 +38,7 @@ function creation(){
     function questionare(){
       scoreOnScreen.innerHTML = score
       console.log(a_counter)
-      if(a_counter === 3){
+      if(a_counter === 4){
         doneWithTest(true)
       }
       //renders questions
@@ -106,6 +107,7 @@ submitBtn.addEventListener("click",function(event){
     // the first statement just passses one object
     if(localStorage.getItem("players") === null){
       localStorage.setItem("players",JSON.stringify(player))
+      location.reload()
     }else{
       //this second statement gets all the information from the localstorage 
       console.log(JSON.parse(localStorage.getItem("players")))
@@ -123,13 +125,13 @@ submitBtn.addEventListener("click",function(event){
       //takes player into the "viewScore area"
       highscore.setAttribute("style","display:contents");
       doneScreen.setAttribute("style","display:none")
+      location.reload()
     }
 }
 })
 //clears all history from localStorage
 clearHistory.addEventListener("click",function(event){
   event.preventDefault()
-  console.log("cleared")
   var userSaidYes = confirm("Are you sure you want to clear history")
   if(userSaidYes === true){
     localStorage.clear()

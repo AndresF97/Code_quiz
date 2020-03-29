@@ -20,6 +20,8 @@ var home = document.querySelector("#home")
 home.addEventListener("click",function(event){
     event.preventDefault()
     score = 0
+    timer = 1000
+    totalMinutes = 60
     main.setAttribute("style","display:contents");
     q_sec.setAttribute("style","display:none");
     doneScreen.setAttribute("style","display:none")
@@ -71,7 +73,7 @@ function startTime(){
             showDoneScreen(false)
             clearInterval(timeInterval)
         }
-    },1000
+    },timer
     )
     minutes.textContent = "--"
 }
