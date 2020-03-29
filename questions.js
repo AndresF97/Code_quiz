@@ -19,11 +19,13 @@ wrongMessage.setAttribute("style","display:none")
 //Object that carries the questions
 var quiz=[
  { q:"We use a ____ tag to connect different code into our HTML",
-    a:["Link tag","Href tag","Img tag","Div tag"]},
+    a:["Link tag","Href tag","Img tag","Div tag","Src link"]},
     {q:"___ helps create websites faster",
      a:["Bootsmack","HelpCSS","BootStack","Bootstrap","Bootmat"]},
     {q:"what terminal command do we use to get code from a repository",
-      a:["git giveme","git iwantit","git pretty please","git pull"]},
+      a:["git giveme","git iwantit","git pretty please","git pull","git get"]},
+      {q:"What can you use to display images in html",
+      a:["Image Link","Image Teg","Img tag","Image src","Img href"]}
 ]
 //function that will get the the elemnet and create and add new content to tye DOM
 
@@ -67,7 +69,7 @@ answer.addEventListener("click",function(event){
           event.preventDefault()
           console.log(event.target)
           var clickedAnswer = event.target.getAttribute("data-ans")
-         if(clickedAnswer === "Link tag" || clickedAnswer === "Bootstrap" || clickedAnswer === "git pull"){
+         if(clickedAnswer === "Link tag" || clickedAnswer === "Bootstrap" || clickedAnswer === "git pull"|| clickedAnswer === "Img tag"){
           correctMessage.setAttribute("style","display:contents")
           questions.textContent=""
           answer.textContent=""
@@ -136,12 +138,12 @@ clearHistory.addEventListener("click",function(event){
 
 //renders Score table
 var ScoreTableShow = function(){
-  doneScreen.setAttribute("style","display:none")
   var highscoreTable = document.getElementById("higscoreTable")
   highscoreTable.textContent = ""
   var playerHistory = JSON.parse(localStorage.getItem("players"))
   var counter = 1
   console.log(playerHistory)
+  if(playerHistory.length){
     for(var i = 0; i < playerHistory.length;i++){
       //create new elemenst according to length of history 
       var tableRow  =document.createElement("tr")
@@ -163,6 +165,14 @@ var ScoreTableShow = function(){
       // setting up counter to show Postion 
       counter++
     }
+  }else{
+    var messageHolder = document.createElement("div")
+    var message = document.createElement("h2")
+    message.textContent = "NO SCORES SO FAR"
+    messageHolder.classList.add("text-center")
+    messageHolder.appendChild(message)
+    highscoreTable.appendChild(messageHolder)
+  }
 }
 // Once the player gets one wrong answer then the time goes down by 5
 var lessTime = function(answer){

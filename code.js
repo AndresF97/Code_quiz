@@ -1,5 +1,5 @@
 //Pointers to find and use code easily
-// thi s display the main menu
+// this display the main menu
 var main = document.getElementById("Main-menu");
 // listens for the button to be clicked
 var start = document.querySelector("#bt");
@@ -15,9 +15,21 @@ doneScreen.setAttribute("style","display:none")
 //score section
 var highscore = document.querySelector("#highscore")
 highscore.setAttribute("style","display:none")
+//targets home screen
+var home = document.querySelector("#home")
+home.addEventListener("click",function(event){
+    event.preventDefault()
+    score = 0
+    main.setAttribute("style","display:contents");
+    q_sec.setAttribute("style","display:none");
+    doneScreen.setAttribute("style","display:none")
+    highscore.setAttribute("style","display:none");
+    
+})
 
 //uses the an event listener on the start button to to bring text present
 start.addEventListener("click",function(){
+    score = 0
     startTime()
     main.setAttribute("style","display:none");
     q_sec.setAttribute("style","display:contents");
