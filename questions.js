@@ -28,7 +28,6 @@ var quiz=[
 
 function creation(){
    questionare()
-   startTime()
   }
     
     ///question and answers functions 
