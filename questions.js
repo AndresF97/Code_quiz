@@ -90,15 +90,35 @@ answer.addEventListener("click",function(event){
 })
 submitBtn.addEventListener("click",function(event){
   event.preventDefault()
+  var saved = []
+  // save player data into an object 
   var player = {
     playerName: nameSubmitsion.value.trim(),
     playerScore: score
   }
-  console.log(player)
+  // this if statement will check if the player put any characters into th eunput area
   if(player.playerName === ""){
     alert("please fill in your Initials")
   }else{
-  localStorage.setItem("players",JSON.stringify(player))
+    //these nested if statements check the localstorage if its the first time a user 
+    // the first statement just passses one object
+    if(localStorage.getItem("players") === null){
+      localStorage.setItem("players",JSON.stringify(player))
+    }else{
+      //this second statement gets all the information from the localstorage 
+      console.log(JSON.parse(localStorage.getItem("players")))
+      //we save the information from the localstorage parse to get as an object
+      var savedPlayers = JSON.parse(localStorage.getItem("players"))
+      // run a for loop to re-enter old players back into the storage
+      for(var i = 0; i < savedPlayers.length;i++){
+        console.log(savedPlayers[i])
+        saved.push(savedPlayers[i])
+      }
+      //push new player
+      saved.push(player)
+      //save player data
+      localStorage.setItem("players",JSON.stringify(saved))
+    }
 }
 })
 
