@@ -18,24 +18,23 @@ highscore.setAttribute("style","display:none")
 
 //uses the an event listener on the start button to to bring text present
 start.addEventListener("click",function(){
+    startTime()
     main.setAttribute("style","display:none");
     q_sec.setAttribute("style","display:contents");
     creation()    
 })
-score.addEventListener("click",function(event){
+score.addEventListener("click",function(event){ 
     event.preventDefault()
     main.setAttribute("style","display:none");
     q_sec.setAttribute("style","display:none");
     highscore.setAttribute("style","display:contents");
-    doneScreen.setAttribute("style","display:none")
-     //start timer
-
-    //render the question.js
+    stopTimer()
     creation()
+    ScoreTableShow()
+    showDoneScreen(false)
 })
 backHome.addEventListener("click",function(event){
     event.preventDefault();
-    console.log("Youre done")
     main.setAttribute("style","display:contents");
     q_sec.setAttribute("style","display:none");
     doneScreen.setAttribute("style","display:none")
@@ -43,9 +42,10 @@ backHome.addEventListener("click",function(event){
 
 })
 
-var totalMinutes = 60;  
+var totalMinutes;  
 
 function startTime(){
+    totalMinutes = 60
     var timeInterval = setInterval(function(){
         totalMinutes--
         minutes.textContent = totalMinutes
@@ -53,9 +53,19 @@ function startTime(){
         if(totalMinutes <= 0){
             clearInterval(timeInterval)
             q_sec.setAttribute("style","display:none");
-            doneScreen.setAttribute("style","display:contents")
+            showDoneScreen(true)
             minutes.textContent = 0
+        }else if (totalMinutes === ""){
+            showDoneScreen(false)
         }
     },1000
     )
+    minutes.textContent = "--"
+}
+var showDoneScreen = function(str){
+    if(str === true){
+        doneScreen.setAttribute("style","display:contents")
+    }else{
+        doneScreen.setAttribute("style","display:none")
+    }
 }

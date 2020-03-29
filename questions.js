@@ -126,7 +126,9 @@ submitBtn.addEventListener("click",function(event){
 //renders Score table
 
 var ScoreTableShow = function(){
+  doneScreen.setAttribute("style","display:none")
   var highscoreTable = document.getElementById("higscoreTable")
+  highscoreTable.textContent = ""
   var playerHistory = JSON.parse(localStorage.getItem("players"))
   var counter = 1
   console.log(playerHistory)
@@ -148,7 +150,7 @@ var ScoreTableShow = function(){
       tableRow.appendChild(tableDOne)
       tableRow.appendChild(tableDTwo)
       highscoreTable.appendChild(tableRow)
-      // setting up counter to show Postion
+      // setting up counter to show Postion 
       counter++
     }
 }
@@ -164,4 +166,8 @@ var doneWithTest = function(answer){
   if(answer === true){
     totalMinutes = 0
   }
+}
+
+var stopTimer = function(){
+  totalMinutes = "--"
 }
