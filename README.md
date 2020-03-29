@@ -60,5 +60,5 @@ back.addEventListener("click",function(event){
 -This code is important since it lets me hide alot of elements in the page accourding to the actions of the user.
  
 ## Author Links
-[LinkedIn](linkedin.com/in/andres-felipe-jimenez-ferreira-b67a35192)
-[GitHub](https://github.com/AndresF97)
+- [LinkedIn](linkedin.com/in/andres-felipe-jimenez-ferreira-b67a35192)
+- [GitHub](https://github.com/AndresF97)
