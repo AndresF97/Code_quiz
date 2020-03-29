@@ -33,12 +33,13 @@ score.addEventListener("click",function(event){
     //render the question.js
     creation()
 })
-back.addEventListener("click",function(event){
+backHome.addEventListener("click",function(event){
     event.preventDefault();
+    console.log("Youre done")
     main.setAttribute("style","display:contents");
     q_sec.setAttribute("style","display:none");
     doneScreen.setAttribute("style","display:none")
-    sp.setAttribute("style","display:none");
+    highscore.setAttribute("style","display:none");
 
 })
 
