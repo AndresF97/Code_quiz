@@ -118,6 +118,9 @@ submitBtn.addEventListener("click",function(event){
       saved.push(player)
       //save player data
       localStorage.setItem("players",JSON.stringify(saved))
+      //takes player into the "viewScore area"
+      highscore.setAttribute("style","display:contents");
+      doneScreen.setAttribute("style","display:none")
     }
 }
 })
