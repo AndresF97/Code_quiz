@@ -123,13 +123,43 @@ submitBtn.addEventListener("click",function(event){
     }
 }
 })
+//renders Score table
 
+var ScoreTableShow = function(){
+  var highscoreTable = document.getElementById("higscoreTable")
+  var playerHistory = JSON.parse(localStorage.getItem("players"))
+  var counter = 1
+  console.log(playerHistory)
+    for(var i = 0; i < playerHistory.length;i++){
+      //create new elemenst according to length of history 
+      var tableRow  =document.createElement("tr")
+      var tableHead = document.createElement("th")
+      var tableDOne= document.createElement("td")
+      var tableDTwo = document.createElement("td")
+      //gives classes to targeted elements
+      tableHead.classList.add("text-center")
+      tableDOne.classList.add("text-center")
+      //addiding content to the elements
+      tableHead.textContent = counter
+      tableDOne.textContent = playerHistory[i].playerName
+      tableDTwo.textContent = playerHistory[i].playerScore
+      //adding each single element into the table row
+      tableRow.appendChild(tableHead)
+      tableRow.appendChild(tableDOne)
+      tableRow.appendChild(tableDTwo)
+      highscoreTable.appendChild(tableRow)
+      // setting up counter to show Postion
+      counter++
+    }
+}
 
+// Once the player gets one wrong answer then the time goes down by 5
 var lessTime = function(answer){
   if(answer === true){
     totalMinutes-=5
   }
 }
+//Once The user is done with the test early the timer stops
 var doneWithTest = function(answer){
   if(answer === true){
     totalMinutes = 0
