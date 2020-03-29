@@ -7,6 +7,7 @@ var wrongMessage = document.querySelector("#wrongAnswer")
 var scoreOnScreen = document.querySelector("#points")
 var submitBtn = document.querySelector("#submitName")
 var nameSubmitsion = document.querySelector("#name")
+var clearHistory = document.querySelector("#clearHistory")
 var a_counter = 0;
 var q_counter = 0;
 var score = 0 
@@ -123,8 +124,17 @@ submitBtn.addEventListener("click",function(event){
     }
 }
 })
-//renders Score table
+//clears all history from localStorage
+clearHistory.addEventListener("click",function(event){
+  event.preventDefault()
+  console.log("cleared")
+  var userSaidYes = confirm("Are you sure you want to clear history")
+  if(userSaidYes === true){
+    localStorage.clear()
+  }
+})
 
+//renders Score table
 var ScoreTableShow = function(){
   doneScreen.setAttribute("style","display:none")
   var highscoreTable = document.getElementById("higscoreTable")
@@ -154,7 +164,6 @@ var ScoreTableShow = function(){
       counter++
     }
 }
-
 // Once the player gets one wrong answer then the time goes down by 5
 var lessTime = function(answer){
   if(answer === true){
@@ -167,7 +176,7 @@ var doneWithTest = function(answer){
     totalMinutes = 0
   }
 }
-
+//stops timer
 var stopTimer = function(){
   totalMinutes = "--"
 }

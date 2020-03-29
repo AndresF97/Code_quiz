@@ -57,6 +57,7 @@ function startTime(){
             minutes.textContent = 0
         }else if (totalMinutes === ""){
             showDoneScreen(false)
+            clearInterval(timeInterval)
         }
     },1000
     )
