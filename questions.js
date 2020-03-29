@@ -106,7 +106,8 @@ submitBtn.addEventListener("click",function(event){
     //these nested if statements check the localstorage if its the first time a user 
     // the first statement just passses one object
     if(localStorage.getItem("players") === null){
-      localStorage.setItem("players",JSON.stringify(player))
+      saved.push(player)
+      localStorage.setItem("players",JSON.stringify(saved))
       location.reload()
     }else{
       //this second statement gets all the information from the localstorage 
@@ -145,9 +146,10 @@ var ScoreTableShow = function(){
   var playerHistory = JSON.parse(localStorage.getItem("players"))
   var counter = 1
   console.log(playerHistory)
-  if(playerHistory.length){
+  if(playerHistory !== null){
     for(var i = 0; i < playerHistory.length;i++){
       //create new elemenst according to length of history 
+      console.log(i)
       var tableRow  =document.createElement("tr")
       var tableHead = document.createElement("th")
       var tableDOne= document.createElement("td")

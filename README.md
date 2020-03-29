@@ -1,7 +1,7 @@
 # Code_quiz
-
+- This is a Beginner programmer test your score will be saved unitl you decide to delete it from yoyr machine.
 ## Site Picture
-![Code quiz](https://media.licdn.com/dms/image/C4E22AQF0Ug5cR0NyFg/feedshare-shrink_800/0?e=1578528000&v=beta&t=fIvsyDoudbMv7qfhLNh9aeh6fbuNgsQwSrdGIKIx3ts)
+![Code quiz](assets/img/CodeQuiz.gif)
 
 ## Summary 
 This a website is supposed to run a test with a timer.

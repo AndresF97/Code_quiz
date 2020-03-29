@@ -6,7 +6,7 @@ var start = document.querySelector("#bt");
 // this gets the question section
 var q_sec= document.querySelector("#question-sec")
 // we target the the score section
-var score=document.querySelector("#score")
+var scores=document.querySelector("#scores")
 // we target the minute section
 var minutes=document.querySelector("#minutes")
 // we target the done section
@@ -37,7 +37,7 @@ start.addEventListener("click",function(){
     q_sec.setAttribute("style","display:contents");
     creation()    
 })
-score.addEventListener("click",function(event){ 
+scores.addEventListener("click",function(event){ 
     event.preventDefault()
     main.setAttribute("style","display:none");
     q_sec.setAttribute("style","display:none");
